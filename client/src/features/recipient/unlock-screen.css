@@ -1,0 +1,99 @@
+.recipient-page .unlock-screen {
+  max-width: 480px;
+  margin: 20px auto 0;
+  padding: 35px 32px 27px;
+  text-align: center;
+  border: 1px solid #e5deed;
+  border-radius: 24px;
+  background: #fff;
+  box-shadow: 0 16px 50px #5741650b;
+}
+
+.recipient-page .unlock-envelope {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  margin: 0 auto 25px;
+  border: 1px solid #ebdfef;
+  border-radius: 24px;
+  background: #f9f0f8;
+  font-size: 36px;
+  transform: rotate(-5deg);
+}
+
+.recipient-page .unlock-description {
+  margin: 17px 0 23px;
+  color: #706177;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.recipient-page .unlock-access-expired {
+  margin: -2px 0 23px;
+  padding: 13px 16px;
+  border: 1px solid #eadfee;
+  border-radius: 12px;
+  background: #faf5fc;
+  color: #674a78;
+  font-size: 13px;
+  line-height: 1.65;
+  text-align: left;
+}
+
+.recipient-page .unlock-hints {
+  margin-bottom: 25px;
+  padding: 16px 18px;
+  border: 1px solid #eadff0;
+  border-radius: 13px;
+  background: #faf6fc;
+  text-align: left;
+}
+
+.recipient-page .unlock-hints-label {
+  color: #7a5387;
+  font-size: 11px;
+  font-weight: 650;
+  margin: 0 0 9px;
+}
+
+.recipient-page .unlock-hints ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: #57475f;
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+}
+
+.recipient-page .unlock-hints li + li { margin-top: 10px; }
+.recipient-page .unlock-form { text-align: left; }
+.recipient-page .unlock-form label { display: block; margin-bottom: 9px; color: #53475c; font-size: 13px; font-weight: 600; }
+
+.recipient-page .unlock-form input {
+  width: 100%;
+  min-height: 47px;
+  padding: 12px 14px;
+  border: 1px solid #cfc4da;
+  border-radius: 10px;
+  background: #fff;
+  color: #44394d;
+  font-size: 16px;
+}
+
+.recipient-page .unlock-code-help { margin: 10px 0 0; color: #75667e; font-size: 12px; line-height: 1.6; }
+.recipient-page .unlock-error { padding: 12px; border-radius: 9px; background: #fff2f3; color: #95364c; font-size: 13px; line-height: 1.6; margin: 15px 0 0; }
+.recipient-page .unlock-wait { color: #6b4c7e; font-size: 13px; line-height: 1.6; margin: 10px 0 0; }
+.recipient-page .unlock-button { width: 100%; gap: 7px; margin-top: 19px; }
+.recipient-page .unlock-form :disabled { cursor: wait; opacity: 0.65; }
+.recipient-page .unlock-form input:focus-visible,
+.recipient-page .recipient-action:focus-visible { outline: 3px solid #9274bf; outline-offset: 3px; }
+.recipient-page .unlock-footer { margin: 24px 0 0; color: #75667e; font-family: Georgia, serif; font-size: 12px; font-style: italic; }
+.recipient-page .recipient-intro h1:focus { outline: none; }
+
+@media (max-width: 480px) {
+  .recipient-page .unlock-screen { padding: 30px 22px 24px; margin-top: 8px; }
+}

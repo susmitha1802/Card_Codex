@@ -1,0 +1,26 @@
+{
+  "name": "@emotale/server",
+  "description": "The Emotale API, private media access, and guarded database migrations.",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node src/index.js",
+    "test": "node --test",
+    "test:db": "node scripts/verify-database.js",
+    "db:migrate": "node scripts/migrate.js",
+    "db:check": "node scripts/check-db.js",
+    "db:import:mysql": "node scripts/import-mysql.js",
+    "db:import:referenced": "node scripts/import-referenced.js"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "multer": "^2.4.0",
+    "mongodb": "^6.20.0",
+    "mysql2": "^3.24.5",
+    "sharp": "^0.35.5"
+  }
+}

@@ -1,0 +1,329 @@
+.recipient-page .recipient-card-stage.card-reveal {
+  --reveal-paper: #fff8eb;
+  --reveal-envelope: #e5ddf1;
+  --reveal-fold: #d4c4e6;
+  --reveal-ink: #766080;
+  --reveal-accent: #aa7eb4;
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 470px;
+  min-height: 530px;
+  margin-inline: auto;
+  animation: none;
+}
+
+.recipient-page .card-reveal[data-theme="romantic"] {
+  --reveal-paper: #fff0e9;
+  --reveal-envelope: #e8b4c0;
+  --reveal-fold: #d890a4;
+  --reveal-ink: #782f48;
+  --reveal-accent: #a44a65;
+}
+
+.recipient-page .card-reveal[data-theme="birthday"] {
+  --reveal-envelope: #c6d8f2;
+  --reveal-fold: #a0bde8;
+  --reveal-ink: #355c99;
+  --reveal-accent: #547bbb;
+}
+
+.recipient-page .card-reveal[data-theme="pastel"] {
+  --reveal-paper: #fff6f0;
+  --reveal-envelope: #e7d7ed;
+  --reveal-fold: #d5bde1;
+  --reveal-ink: #77618d;
+  --reveal-accent: #b093c1;
+}
+
+.recipient-page .card-reveal[data-theme="elegant"] {
+  --reveal-paper: #fffdf5;
+  --reveal-envelope: #ede4cf;
+  --reveal-fold: #dacbaa;
+  --reveal-ink: #766037;
+  --reveal-accent: #ad9255;
+}
+
+.recipient-page .card-reveal[data-theme="dark"] {
+  --reveal-paper: #f1e9da;
+  --reveal-envelope: #4c526e;
+  --reveal-fold: #383f5a;
+  --reveal-ink: #6a5b7b;
+  --reveal-accent: #c2ad7e;
+}
+
+.recipient-page .card-reveal[data-theme="celebration"] {
+  --reveal-paper: #fff5e5;
+  --reveal-envelope: #c7a6e7;
+  --reveal-fold: #a87ace;
+  --reveal-ink: #694196;
+  --reveal-accent: #d39753;
+}
+
+.recipient-page .reveal-opening {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 40px 10px;
+  box-sizing: border-box;
+}
+
+.recipient-page .reveal-envelope {
+  position: relative;
+  width: min(320px, 100%);
+  aspect-ratio: 1.52;
+  border: 1px solid var(--reveal-fold);
+  border-radius: 12px;
+  background: var(--reveal-envelope);
+  box-shadow: 0 14px 28px #40344f12;
+  overflow: hidden;
+}
+
+.recipient-page .reveal-envelope-letter {
+  position: absolute;
+  inset: 20px 23px 14px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 22px;
+  border-radius: 7px 7px 0 0;
+  background: var(--reveal-paper);
+  animation: card-reveal-letter var(--reveal-opening-ms) ease-out both;
+}
+
+.recipient-page .reveal-letter-mark {
+  color: var(--reveal-accent);
+  font-size: 30px;
+  line-height: 1;
+  margin-bottom: 16px;
+}
+
+.recipient-page .reveal-letter-line {
+  width: 50%;
+  height: 1px;
+  margin-top: 9px;
+  background: var(--reveal-accent);
+  opacity: 0.25;
+}
+
+.recipient-page .reveal-letter-line.short-line { width: 32%; }
+
+.recipient-page .reveal-envelope-front {
+  position: absolute;
+  inset: 0;
+  background: var(--reveal-envelope);
+  clip-path: polygon(0 0, 50% 47%, 100% 0, 100% 100%, 0 100%);
+  border-bottom: 3px solid var(--reveal-fold);
+}
+
+.recipient-page .reveal-envelope-flap {
+  position: absolute;
+  inset: 0 0 43%;
+  background: var(--reveal-fold);
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: center top;
+  animation: card-reveal-flap var(--reveal-opening-ms) ease-out both;
+}
+
+.recipient-page .reveal-envelope-seal {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  display: grid;
+  place-items: center;
+  width: 33px;
+  height: 33px;
+  margin: -4px 0 0 -17px;
+  border: 1px solid var(--reveal-paper);
+  border-radius: 50%;
+  color: var(--reveal-paper);
+  background: var(--reveal-ink);
+  font-size: 17px;
+  animation: card-reveal-seal var(--reveal-opening-ms) ease-out both;
+}
+
+.recipient-page .reveal-opening-note {
+  max-width: 270px;
+  margin: 26px 0 14px;
+  text-align: center;
+  color: var(--recipient-muted, #766b81);
+  font-family: Georgia, serif;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.recipient-page .reveal-open-now {
+  min-height: 44px;
+  padding: 10px 22px;
+  border: 1px solid #d5c8df;
+  border-radius: 11px;
+  background: #fffdfc;
+  color: #665277;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.recipient-page .reveal-open-now:hover { background: #f2ebf8; }
+.recipient-page .reveal-open-now:focus-visible { outline: 3px solid #aa87c5; outline-offset: 4px; }
+
+.recipient-page .reveal-content {
+  position: relative;
+  z-index: 0;
+  width: 100%;
+}
+
+.recipient-page .card-reveal[data-reveal-state="ready"]:not([data-motion="reduced"]) .reveal-content {
+  animation: card-reveal-content 240ms ease-out both;
+}
+
+.recipient-page .card-reveal[data-reveal-state="ready"]:not([data-motion="reduced"]) .card-message {
+  animation: card-reveal-message var(--reveal-message-ms) ease-out both;
+}
+
+.recipient-page .card-reveal[data-reveal-state="ready"]:not([data-motion="reduced"]) .card-photo {
+  animation: card-reveal-photo 360ms ease-out both;
+  animation-delay: var(--reveal-photo-delay, 0ms);
+}
+
+.recipient-page .card-reveal .card-photo:nth-child(2) { --reveal-photo-delay: 40ms; }
+.recipient-page .card-reveal .card-photo:nth-child(3) { --reveal-photo-delay: 80ms; }
+.recipient-page .card-reveal .card-photo:nth-child(4) { --reveal-photo-delay: 120ms; }
+
+.recipient-page .card-reveal[data-reveal-state="ready"]:not([data-motion="reduced"]) .card-sticker-row span[role="img"],
+.recipient-page .card-reveal[data-reveal-state="ready"]:not([data-motion="reduced"]) .card-sticker-center span[role="img"] {
+  display: inline-block;
+  animation: card-reveal-sticker 320ms ease-out both;
+}
+
+.recipient-page .reveal-decorations {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  border-radius: 24px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.recipient-page .reveal-decoration {
+  position: absolute;
+  top: 13%;
+  left: 6%;
+  color: var(--reveal-accent);
+  opacity: 0;
+  animation: card-reveal-gentle 650ms ease-out both;
+}
+
+.recipient-page .reveal-decorations[data-decoration="hearts"] .reveal-decoration { font-size: 21px; }
+.recipient-page .reveal-decorations[data-decoration="hearts"] .reveal-decoration:nth-child(2) { top: 28%; left: auto; right: 5%; font-size: 15px; animation-delay: 70ms; }
+
+.recipient-page .reveal-decorations[data-decoration="stars"] .reveal-decoration { font-size: 15px; animation-name: card-reveal-star; animation-duration: 620ms; }
+.recipient-page .reveal-decorations[data-decoration="stars"] .reveal-decoration:nth-child(2) { top: 33%; left: auto; right: 5%; font-size: 10px; }
+
+.recipient-page .reveal-decorations[data-decoration="petals"] .reveal-decoration {
+  width: 11px;
+  height: 18px;
+  border-radius: 80% 10% 80% 10%;
+  background: #cfb3dd;
+  animation-name: card-reveal-petal;
+}
+.recipient-page .reveal-decorations[data-decoration="petals"] .reveal-decoration:nth-child(2) { left: auto; right: 5%; top: 23%; background: #edc1b8; animation-delay: 40ms; }
+.recipient-page .reveal-decorations[data-decoration="petals"] .reveal-decoration:nth-child(3) { left: 9%; top: 45%; width: 8px; height: 13px; background: #afcebd; animation-delay: 80ms; }
+
+.recipient-page .reveal-decorations[data-decoration="line"] .reveal-decoration {
+  top: 18px;
+  left: 25%;
+  width: 50%;
+  height: 1px;
+  background: var(--reveal-accent);
+  animation: card-reveal-line 600ms ease-out both;
+}
+
+.recipient-page .reveal-decorations[data-decoration="confetti"] .reveal-decoration {
+  top: calc(9% + var(--decoration-index) * 3%);
+  left: calc(5% + var(--decoration-index) * 12%);
+  width: 5px;
+  height: 12px;
+  border-radius: 2px;
+  background: #9c85d0;
+  animation: card-reveal-confetti 570ms ease-out both;
+  animation-delay: calc(var(--decoration-index) * 18ms);
+}
+.recipient-page .reveal-decorations[data-decoration="confetti"] .reveal-decoration:nth-child(2n) { background: #d8ab67; }
+.recipient-page .reveal-decorations[data-decoration="confetti"] .reveal-decoration:nth-child(3n) { width: 7px; height: 7px; border-radius: 50%; background: #d99b9b; }
+.recipient-page .card-reveal[data-theme="celebration"] .reveal-decorations[data-decoration="confetti"] .reveal-decoration { animation-duration: 480ms; }
+
+@keyframes card-reveal-letter {
+  from { transform: translateY(24px); }
+  to { transform: translateY(-12px); }
+}
+@keyframes card-reveal-flap {
+  from { transform: scaleY(1); }
+  to { transform: scaleY(0.16); }
+}
+@keyframes card-reveal-seal {
+  0%, 22% { opacity: 1; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+@keyframes card-reveal-content {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-reveal-message {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes card-reveal-photo {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes card-reveal-sticker {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes card-reveal-gentle {
+  0% { opacity: 0; transform: translateY(9px) scale(0.96); }
+  35% { opacity: 0.58; }
+  100% { opacity: 0; transform: translateY(-12px) scale(1); }
+}
+@keyframes card-reveal-star {
+  0%, 100% { opacity: 0; }
+  40% { opacity: 0.62; }
+}
+@keyframes card-reveal-petal {
+  0% { opacity: 0; transform: translateY(-8px) rotate(-15deg); }
+  35% { opacity: 0.54; }
+  100% { opacity: 0; transform: translateY(16px) rotate(15deg); }
+}
+@keyframes card-reveal-line {
+  from { opacity: 0; transform: scaleX(0.8); }
+  to { opacity: 0.6; transform: scaleX(1); }
+}
+@keyframes card-reveal-confetti {
+  0% { opacity: 0; transform: translateY(-10px) rotate(-14deg); }
+  20% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(30px) rotate(22deg); }
+}
+
+.recipient-page .card-reveal[data-motion="reduced"] *,
+.recipient-page .card-reveal[data-motion="reduced"],
+.recipient-page .card-reveal[data-skipped="true"] *,
+.recipient-page .card-reveal[data-skipped="true"] { animation: none !important; transition: none !important; }
+
+@media (max-width: 480px) {
+  .recipient-page .recipient-card-stage.card-reveal { min-height: 500px; }
+  .recipient-page .reveal-envelope { width: min(290px, 100%); }
+  .recipient-page .reveal-opening-note { font-size: 14px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .recipient-page .card-reveal,
+  .recipient-page .card-reveal * { animation: none !important; transition: none !important; }
+  .recipient-page .reveal-decorations { display: none; }
+}

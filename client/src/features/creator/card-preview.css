@@ -1,0 +1,354 @@
+.card-preview {
+  --card-accent: #5177aa;
+  --card-muted: #788197;
+  position: relative;
+  isolation: isolate;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  max-width: 470px;
+  min-height: 530px;
+  overflow: hidden;
+  border: 1px solid #e8e1d5;
+  border-radius: 24px;
+  background: #fffaf0;
+  color: var(--preview-text-color);
+  box-shadow: 0 15px 35px #243d3012, 0 3px 8px #243d3005;
+}
+
+.card-preview .card-preview-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 530px;
+  padding: 36px 38px 29px;
+  box-sizing: border-box;
+}
+
+.card-preview .card-occasion {
+  margin: 0;
+  color: var(--card-muted);
+  font-family: "Segoe UI", Arial, sans-serif;
+  font-size: 10px;
+  font-weight: 650;
+  letter-spacing: 2.4px;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.card-preview .card-illustration {
+  position: relative;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  width: 170px;
+  height: 115px;
+  margin: 24px 0 19px;
+}
+
+.card-preview .card-illustration-halo {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border: 1px solid #5177aa26;
+  border-radius: 50%;
+  background: #dce8fa66;
+  transform: rotate(-12deg);
+}
+
+.card-preview .card-occasion-emoji {
+  position: relative;
+  font-size: 58px;
+  line-height: 1;
+  filter: drop-shadow(0 5px 6px #0e263414);
+}
+
+.card-preview .card-illustration-spark {
+  position: absolute;
+  color: var(--card-accent);
+  line-height: 1;
+}
+
+.card-preview .spark-left {
+  top: 14px;
+  left: 9px;
+  font-size: 18px;
+  transform: rotate(-12deg);
+}
+
+.card-preview .spark-right {
+  right: 8px;
+  bottom: 15px;
+  font-size: 26px;
+  transform: rotate(9deg);
+}
+
+.card-preview .card-recipient {
+  margin: 0 0 10px;
+  color: var(--preview-text-color);
+  font-family: var(--preview-font);
+  font-size: 15px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+
+.card-preview .card-title {
+  margin: 0;
+  color: var(--preview-text-color);
+  font-family: var(--preview-font);
+  font-size: clamp(34px, 3.5vw, 44px);
+  font-weight: 400;
+  letter-spacing: -1.4px;
+  line-height: 1.12;
+  overflow-wrap: anywhere;
+}
+
+.card-preview .card-message-rule {
+  width: 32px;
+  height: 1px;
+  margin: 23px auto 21px;
+  background: var(--card-accent);
+  opacity: 0.55;
+}
+
+.card-preview[data-alignment="left"] .card-message-rule {
+  margin-left: 0;
+}
+
+.card-preview[data-alignment="right"] .card-message-rule {
+  margin-right: 0;
+}
+
+.card-preview .card-message {
+  margin: 0;
+  color: var(--preview-text-color);
+  font-family: var(--preview-font);
+  font-size: var(--preview-message-size);
+  font-weight: var(--preview-text-weight, 400);
+  line-height: var(--preview-line-height, 1.7);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.card-preview .card-message-placeholder {
+  opacity: 0.8;
+}
+
+.card-preview .card-closing-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 32px;
+  color: var(--card-accent);
+  font-size: 12px;
+  opacity: 0.65;
+}
+
+.card-preview .card-closing-ornament span:first-child,
+.card-preview .card-closing-ornament span:last-child {
+  width: 20px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.45;
+}
+
+.card-preview .card-decoration {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.card-preview .card-decoration-shape {
+  position: absolute;
+  display: block;
+}
+
+/* Birthday: warm paper, blue ink, and playful little confetti marks. */
+.card-preview[data-theme="birthday"] {
+  --card-accent: #5477b3;
+  --card-muted: #5c6f8b;
+  background: radial-gradient(ellipse at 100% 0%, #e8f0fd88, transparent 50%), #fffaf0;
+}
+
+.card-preview[data-theme="birthday"] .card-decoration-shape {
+  width: 5px;
+  height: 12px;
+  border-radius: 2px;
+  background: #7797c777;
+  transform: rotate(-25deg);
+}
+
+.card-preview[data-theme="birthday"] .shape-one { top: 75px; left: 26px; }
+.card-preview[data-theme="birthday"] .shape-two { top: 138px; right: 28px; background: #d3b07088; transform: rotate(32deg); }
+.card-preview[data-theme="birthday"] .shape-three { bottom: 75px; left: 22px; width: 7px; height: 7px; background: #d3b07077; border-radius: 50%; }
+.card-preview[data-theme="birthday"] .shape-four { bottom: 114px; right: 19px; width: 7px; height: 7px; border-radius: 50%; }
+
+/* Romantic: rich cherry tones, rose accents, and fine geometric outlines. */
+.card-preview[data-theme="romantic"] {
+  --card-accent: #f1a2ba;
+  --card-muted: #e0b3bf;
+  border-color: #68323f;
+  background: radial-gradient(ellipse at 50% 25%, #a44a61, transparent 75%), #672a3d;
+}
+
+.card-preview[data-theme="romantic"] .card-illustration-halo {
+  border-color: #fbbed844;
+  background: #cd6b8338;
+}
+
+.card-preview[data-theme="romantic"] .card-decoration-shape {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #efabbd55;
+  border-radius: 12px 45px 12px 12px;
+  transform: rotate(-45deg);
+}
+
+.card-preview[data-theme="romantic"] .shape-one { top: 53px; left: -17px; }
+.card-preview[data-theme="romantic"] .shape-two { bottom: 24px; right: -18px; width: 100px; height: 100px; }
+.card-preview[data-theme="romantic"] .shape-three { top: 105px; right: 20px; width: 17px; height: 17px; border-radius: 4px 15px 4px 4px; }
+.card-preview[data-theme="romantic"] .shape-four { bottom: 138px; left: 15px; width: 14px; height: 14px; border-radius: 4px 15px 4px 4px; }
+
+/* Pastel: airy lavender, peach, and mint with translucent floating circles. */
+.card-preview[data-theme="pastel"] {
+  --card-accent: #9682b8;
+  --card-muted: #70647c;
+  border-color: #e7ddf0;
+  background: linear-gradient(145deg, #f1eafa, #fff0eb 53%, #e6f3ed);
+}
+
+.card-preview[data-theme="pastel"] .card-illustration-halo {
+  border-color: #ae99c62b;
+  background: #ffffff66;
+}
+
+.card-preview[data-theme="pastel"] .card-decoration-shape {
+  width: 190px;
+  height: 190px;
+  border: 1px solid #ffffff88;
+  border-radius: 50%;
+  background: #ffffff28;
+}
+
+.card-preview[data-theme="pastel"] .shape-one { top: -105px; right: -40px; }
+.card-preview[data-theme="pastel"] .shape-two { bottom: -80px; left: -75px; width: 230px; height: 230px; }
+.card-preview[data-theme="pastel"] .shape-three { top: 115px; left: 21px; width: 16px; height: 16px; }
+.card-preview[data-theme="pastel"] .shape-four { bottom: 112px; right: 22px; width: 24px; height: 24px; }
+
+/* Elegant: an ivory invitation, fine double frame, and restrained gold. */
+.card-preview[data-theme="elegant"] {
+  --card-accent: #ad9255;
+  --card-muted: #75633f;
+  border-color: #d7c69f;
+  border-radius: 5px;
+  background: #fcf9f0;
+}
+
+.card-preview[data-theme="elegant"] .card-decoration {
+  inset: 11px;
+  border: 1px solid #bdab7e88;
+}
+
+.card-preview[data-theme="elegant"] .card-illustration-halo {
+  width: 94px;
+  height: 94px;
+  border: 1px solid #baa26a66;
+  border-radius: 50% 50% 4px 4px;
+  background: #e5dac02b;
+  transform: none;
+}
+
+.card-preview[data-theme="elegant"] .card-title {
+  font-size: clamp(33px, 3.4vw, 42px);
+  letter-spacing: -0.8px;
+}
+
+.card-preview[data-theme="elegant"] .card-decoration-shape {
+  width: 10px;
+  height: 10px;
+  border: 1px solid #bdab7e88;
+  background: #fcf9f0;
+  transform: rotate(45deg);
+}
+
+.card-preview[data-theme="elegant"] .shape-one { top: -6px; left: -6px; }
+.card-preview[data-theme="elegant"] .shape-two { top: -6px; right: -6px; }
+.card-preview[data-theme="elegant"] .shape-three { bottom: -6px; left: -6px; }
+.card-preview[data-theme="elegant"] .shape-four { bottom: -6px; right: -6px; }
+
+/* Dark: a quiet midnight sky with a warm moon-like halo. */
+.card-preview[data-theme="dark"] {
+  --card-accent: #cbb888;
+  --card-muted: #a0a6c1;
+  border-color: #323a54;
+  background: radial-gradient(ellipse at 50% 15%, #323951, transparent 70%), #1d2335;
+}
+
+.card-preview[data-theme="dark"] .card-illustration-halo {
+  border-color: #d1bd8b33;
+  background: #e0c89a0e;
+  box-shadow: 0 0 50px #dbba7010;
+}
+
+.card-preview[data-theme="dark"] .card-decoration-shape {
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: #dfcdab99;
+  box-shadow: 18px 36px 0 #dfcdab30, -12px 106px 0 #dfcdab33, 11px 204px 0 #dfcdab30;
+}
+
+.card-preview[data-theme="dark"] .shape-one { top: 80px; left: 29px; }
+.card-preview[data-theme="dark"] .shape-two { top: 95px; right: 29px; }
+.card-preview[data-theme="dark"] .shape-three { bottom: 130px; left: 22px; }
+.card-preview[data-theme="dark"] .shape-four { bottom: 190px; right: 25px; }
+
+/* Celebration: vibrant violet with bold arcs and bursts of warm color. */
+.card-preview[data-theme="celebration"] {
+  --card-accent: #ffd383;
+  --card-muted: #e1cefa;
+  border-color: #764fc3;
+  background: linear-gradient(150deg, #965ecb, #6845b8 52%, #48349d);
+}
+
+.card-preview[data-theme="celebration"] .card-illustration-halo {
+  border: 2px dashed #ffda9766;
+  background: #ffffff14;
+}
+
+.card-preview[data-theme="celebration"] .card-decoration-shape {
+  width: 150px;
+  height: 150px;
+  border: 15px solid #d4b7ef2b;
+  border-radius: 50%;
+}
+
+.card-preview[data-theme="celebration"] .shape-one { top: -72px; left: -84px; }
+.card-preview[data-theme="celebration"] .shape-two { bottom: -94px; right: -50px; width: 200px; height: 200px; border-color: #ffbc9233; }
+.card-preview[data-theme="celebration"] .shape-three { top: 142px; right: 19px; width: 5px; height: 13px; border: 0; border-radius: 2px; background: #ffd47dbb; transform: rotate(35deg); }
+.card-preview[data-theme="celebration"] .shape-four { bottom: 130px; left: 17px; width: 6px; height: 14px; border: 0; border-radius: 2px; background: #ffb4a2bb; transform: rotate(-24deg); }
+
+@media (max-width: 480px) {
+  .card-preview .card-preview-content {
+    min-height: 500px;
+    padding: 30px 27px 25px;
+  }
+
+  .card-preview {
+    min-height: 500px;
+    border-radius: 20px;
+  }
+
+  .card-preview[data-theme="elegant"] {
+    border-radius: 5px;
+  }
+
+  .card-preview .card-illustration {
+    margin-top: 21px;
+  }
+}

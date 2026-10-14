@@ -1,0 +1,97 @@
+/* Default copy uses display:contents so its existing layout stays unchanged. */
+.card-preview .card-readable-copy { display: contents; }
+.card-preview .card-readable-copy.has-reading-surface {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  padding: 20px 18px;
+  border-radius: 13px;
+  background: var(--reading-surface);
+}
+
+.card-preview[data-layout="title"] .card-title {
+  font-size: clamp(40px, 5vw, 56px);
+  line-height: 1.08;
+  letter-spacing: -1.3px;
+}
+
+.card-preview[data-layout="photo"] .card-illustration,
+.card-preview[data-layout="collage"] .card-illustration {
+  width: 115px;
+  height: 76px;
+  margin: 16px 0;
+}
+.card-preview[data-layout="photo"] .card-illustration-halo,
+.card-preview[data-layout="collage"] .card-illustration-halo { width: 64px; height: 64px; }
+.card-preview[data-layout="photo"] .card-occasion-emoji,
+.card-preview[data-layout="collage"] .card-occasion-emoji { font-size: 40px; }
+.card-preview[data-layout="photo"] .card-photo-gallery,
+.card-preview[data-layout="collage"] .card-photo-gallery { margin: 0 0 22px; }
+.card-preview[data-layout="collage"] .card-photo-gallery { gap: 9px; }
+.card-preview[data-layout="collage"] .card-photo { border-width: 4px; border-radius: 8px; }
+
+.card-preview[data-layout="letter"] .card-illustration {
+  width: 105px;
+  height: 70px;
+  margin: 18px 0;
+}
+.card-preview[data-layout="letter"] .card-illustration-halo { width: 58px; height: 58px; }
+.card-preview[data-layout="letter"] .card-occasion-emoji { font-size: 38px; }
+.card-preview[data-layout="letter"] .card-title { font-size: clamp(31px, 3.5vw, 39px); letter-spacing: -0.7px; }
+.card-preview[data-layout="letter"] .card-message {
+  padding-inline-start: 14px;
+  border-inline-start: 1px solid var(--card-accent);
+  background-image: linear-gradient(to bottom, transparent calc(100% - 1px), #8b7c6320 0);
+  background-size: 100% calc(var(--preview-message-size) * var(--preview-line-height));
+}
+
+/* Rotation belongs to the outer wrapper. Recipient entrance effects animate
+   the inner labelled span, so neither transform can overwrite the other. */
+.card-preview .card-sticker-placement {
+  display: inline-block;
+  transform: rotate(var(--sticker-rotation, 0deg));
+}
+.card-preview .card-sticker-placement[data-sticker-size="small"] { font-size: 24px; }
+.card-preview .card-sticker-placement[data-sticker-size="large"] { font-size: 40px; }
+
+.card-preview .card-built-in-decorations {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.card-preview .card-design-decoration {
+  position: absolute;
+  top: 12%;
+  left: 7%;
+  display: block;
+  color: var(--card-accent);
+  opacity: 0.18;
+  font-size: 20px;
+  line-height: 1;
+}
+.card-preview .card-design-decoration:nth-child(2) { top: 22%; left: auto; right: 6%; transform: rotate(12deg); }
+.card-preview .card-design-decoration:nth-child(3) { top: auto; bottom: 20%; left: 6%; font-size: 15px; transform: rotate(-10deg); }
+.card-preview .card-design-decoration:nth-child(4) { top: auto; bottom: 12%; left: auto; right: 8%; font-size: 24px; }
+.card-preview .card-design-decoration:nth-child(5) { top: 4%; left: 43%; font-size: 12px; }
+.card-preview .card-design-decoration:nth-child(6) { top: auto; bottom: 5%; left: 34%; }
+.card-preview .card-design-decoration:nth-child(7) { top: 40%; left: auto; right: 4%; }
+.card-preview .card-design-decoration:nth-child(8) { top: 53%; left: 4%; }
+
+.card-preview .card-built-in-decorations[data-decoration="sparkles"] .card-design-decoration { opacity: 0.25; }
+.card-preview .card-built-in-decorations[data-decoration="petals"] .card-design-decoration { width: 12px; height: 22px; border-radius: 80% 10% 80% 10%; background: var(--card-accent); transform: rotate(-17deg); }
+.card-preview .card-built-in-decorations[data-decoration="petals"] .card-design-decoration:nth-child(2n) { transform: rotate(23deg); }
+.card-preview .card-built-in-decorations[data-decoration="balloons"] .card-design-decoration { width: 24px; height: 30px; border: 1px solid var(--card-accent); border-radius: 50%; background: var(--card-accent); }
+.card-preview .card-built-in-decorations[data-decoration="balloons"] .card-design-decoration::after { content: ''; position: absolute; top: 29px; left: 50%; width: 1px; height: 28px; background: var(--card-accent); }
+.card-preview .card-built-in-decorations[data-decoration="confetti"] .card-design-decoration { width: 5px; height: 13px; border-radius: 2px; background: var(--card-accent); transform: rotate(-25deg); opacity: 0.25; }
+.card-preview .card-built-in-decorations[data-decoration="confetti"] .card-design-decoration:nth-child(2n) { transform: rotate(30deg); }
+.card-preview .card-built-in-decorations[data-decoration="confetti"] .card-design-decoration:nth-child(3n) { width: 7px; height: 7px; border-radius: 50%; }
+.card-preview .card-built-in-decorations[data-decoration="lines"] .card-design-decoration { top: 16px; left: 16px; right: 16px; height: 1px; background: var(--card-accent); }
+.card-preview .card-built-in-decorations[data-decoration="lines"] .card-design-decoration:nth-child(2) { top: auto; bottom: 16px; transform: none; }
+.card-preview .card-built-in-decorations[data-decoration="dots"] .card-design-decoration { width: 7px; height: 7px; border-radius: 50%; background: var(--card-accent); }
+
+@media (max-width: 480px) {
+  .card-preview .card-readable-copy.has-reading-surface { padding: 17px 15px; }
+  .card-preview[data-layout="title"] .card-title { font-size: 42px; }
+}

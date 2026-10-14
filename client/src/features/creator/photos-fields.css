@@ -1,0 +1,11 @@
+.photos-section .add-photos-button { border: 1px solid #dacde7; background: #f7f1fc; color: #654a80; border-radius: 10px; padding: 12px 18px; min-height: 44px; font-size: 13px; font-weight: 600; }
+.photos-section .selected-photos { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 12px; }
+.photos-section .selected-photos li { display: flex; gap: 12px; align-items: center; padding: 10px; border: 1px solid #e8e1ef; border-radius: 12px; background: #fbf9fd; }
+.photos-section .selected-photos img { flex-shrink: 0; width: 64px; height: 64px; object-fit: cover; border-radius: 8px; background: #eee5f3; }
+.photos-section .selected-photo-details { flex: 1; min-width: 0; }
+.photos-section .selected-photo-details p { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin: 0 0 8px; color: #55465e; font-size: 12px; }
+.photos-section .photo-order-controls { display: flex; gap: 6px; }
+.photos-section .photo-order-controls button { min-height: 32px; min-width: 32px; padding: 5px 8px; border: 1px solid #ded1e8; border-radius: 7px; background: #fff; color: #644e77; font-size: 12px; }
+.photos-section .photo-field-error { color: #963e50; font-size: 13px; line-height: 1.6; }
+.photos-section button:disabled { opacity: .5; cursor: default; }
+.photos-section button:focus-visible { outline: 3px solid #9677c8; outline-offset: 3px; }

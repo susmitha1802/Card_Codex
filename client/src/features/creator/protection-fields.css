@@ -1,0 +1,96 @@
+.protection-section .protection-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 13px 14px;
+  border: 1px solid #e7dfef;
+  border-radius: 10px;
+  background: #faf7fd;
+  cursor: pointer;
+}
+
+.protection-section .protection-toggle-label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 5px 8px;
+  color: #524a5f;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.protection-section .protection-toggle-control {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.protection-section .protection-switch {
+  position: relative;
+  display: block;
+  width: 42px;
+  height: 25px;
+}
+
+.protection-section .protection-switch-input {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.protection-section .protection-switch-track {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #bcb0c9;
+  border-radius: 20px;
+  background: #d8cfe1;
+}
+
+.protection-section .protection-switch-track::after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 3px #49365725;
+  content: '';
+}
+
+.protection-section .protection-switch-input:checked + .protection-switch-track {
+  border-color: #7d5c94;
+  background: #7d5c94;
+}
+
+.protection-section .protection-switch-input:checked + .protection-switch-track::after {
+  left: 21px;
+}
+
+.protection-section .protection-switch-input:focus-visible + .protection-switch-track {
+  outline: 3px solid #8d70ce;
+  outline-offset: 4px;
+}
+
+.protection-section .protection-switch-input:disabled {
+  cursor: wait;
+}
+
+.protection-section .protection-toggle-status {
+  min-width: 24px;
+  color: #746081;
+  font-size: 11px;
+  font-weight: 650;
+}
+
+.protection-section .protection-fields {
+  padding-top: 1px;
+}
